@@ -1,0 +1,87 @@
+﻿<%@ Master Language="VB" AutoEventWireup="true" CodeBehind="Site.master.vb" Inherits="StudentInformationSystem.SiteMaster" %>
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Student Information System</title>
+
+    <!-- Load Modernizr if bundled -->
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/bundles/modernizr") %>
+    </asp:PlaceHolder>
+
+    <!-- Load Bootstrap and CSS -->
+    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<body>
+    <form runat="server">
+        <!-- Script manager for JS libraries -->
+        <asp:ScriptManager runat="server">
+            <Scripts>
+                <asp:ScriptReference Name="MsAjaxBundle" />
+                <asp:ScriptReference Name="jquery" />
+                <asp:ScriptReference Path="~/Scripts/WebForms/WebUIValidation.js" />
+                <asp:ScriptReference Path="~/Scripts/WebForms/GridView.js" />
+                <asp:ScriptReference Path="~/Scripts/WebForms/WebParts.js" />
+                <asp:ScriptReference Name="WebFormsBundle" />
+            </Scripts>
+        </asp:ScriptManager>
+
+        <!-- ✅ Show navbar if not on Login.aspx -->
+        <% If Not Request.Url.AbsolutePath.ToLower().EndsWith("login.aspx") Then %>
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand" runat="server" href="Default.aspx">Student Information System</a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a id="homeLink" runat="server" class="nav-link" href="Default.aspx">Home</a>
+                        </li>
+                        <li id="liManageStudents" runat="server" class="nav-item">
+                            <a class="nav-link" runat="server" href="ManageStudents.aspx">Manage Students</a>
+                        </li>
+                        <li id="liManageCourses" runat="server" class="nav-item">
+                            <a class="nav-link" runat="server" href="ManageCourses.aspx">Manage Courses</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="ManageEnrollments.aspx">Manage Enrollments</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" runat="server" href="Dashboard.aspx">Dashboard</a>
+                        </li>
+                        <asp:PlaceHolder ID="phStudentNav" runat="server" Visible="false">
+                            <li class="nav-item">
+                                <a class="nav-link" runat="server" href="MyProfile.aspx">My Profile</a>
+                            </li>
+                        </asp:PlaceHolder>
+                    </ul>
+                    <ul class="navbar-nav navbar-right">
+                        <asp:Literal ID="litUserInfo" runat="server" Mode="PassThrough" />
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <% End If %>
+
+        <!-- Main content -->
+        <div class="container body-content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            <hr />
+            <footer>
+                <p>&copy; <%: DateTime.Now.Year %> - Student Information System</p>
+            </footer>
+        </div>
+    </form>
+
+    <!-- Load Bootstrap JS -->
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+</body>
+</html>
