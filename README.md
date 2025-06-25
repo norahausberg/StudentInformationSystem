@@ -1,42 +1,38 @@
-# 🎓 Student Information System (SIS)
+# Student Information System (SIS)
 
-This is a **basic enhanced Student Information System** (SIS) developed as a capstone project for the course *Programming with Generative AI* at the University of St. Gallen (HSG).
+## Overview
+A simple yet functional web-based Student Information System built with **VB.NET Web Forms** and **Supabase PostgreSQL**. It supports student/course management, role-based access, enrollment, and data visualization.
 
-## 📌 Project Objectives
+## Features
 
-- Build a simple, user-friendly Student Information System using VB.NET (ASP.NET Web Forms)
-- Enable admin and student roles with secure login
-- Manage students, courses, and enrollments
-- Visualize data with simple charts
-- Follow clean code and design practices
+- 🧑‍🎓 **User Authentication** (Admin / Student roles)
+- 📋 **Student Management** (CRUD)
+- 📚 **Course Management** (CRUD)
+- ✅ **Course Enrollment**
+- 📊 **Dashboard with Chart.js Visuals**
+- 📬 **(Optional)** Email Notifications via SMTP
+- 📱 **Responsive Design** using Bootstrap
 
----
+## Live Demo
+🔗 [Hosted Azure URL here]  
+📌 **Demo Logins:**
 
-## ✅ Features
+| Role    | Username | Password   |
+|---------|----------|------------|
+| Admin   | `admin`  | `admin123` |
+| Student | `Norah`  | `Bobby123` |
 
-- **User Authentication**: Admin and Student roles
-- **Student Management**: Add, update, delete, and list students (Admin only)
-- **Course Management**: Add and manage courses (Admin only)
-- **Enrollment Management**:
-  - Students can enroll in courses
-  - Admins can view and remove enrollments
-- **Dashboard**: Simple bar chart using Chart.js showing enrollments per course
-- **My Profile**: Students can view their name and enrollments
-- **Validation & Security**:
-  - Session-based role access
-  - Data validation and feedback messages
+## How It Works
 
----
+- **Admins** can create students/courses and manage all data.
+- **Students** can register *only if their full name and email already exist* in the database.
+- Once logged in, students can enroll in courses and see progress in charts.
 
-## 🧰 Technologies Used
+## Technologies Used
 
-| Layer        | Tech                                 |
-|--------------|--------------------------------------|
-| Frontend     | ASP.NET Web Forms + Bootstrap        |
-| Backend      | VB.NET (.NET Framework 4.7.2)        |
-| Database     | Supabase (PostgreSQL)                |
-| Charting     | Chart.js                             |
-| Hosting      | Azure App Service                    |
-
----
+- **VB.NET Web Forms**
+- **Supabase (PostgreSQL)**
+- **Chart.js**
+- **Bootstrap**
+- **ASP.NET WebForms Routing**
 
